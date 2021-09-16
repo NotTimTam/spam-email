@@ -1,0 +1,343 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+main,
+article,
+aside,
+figure,
+footer,
+header,
+nav,
+section,
+details,
+summary {
+  display: block;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img,
+object,
+embed {
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+blockquote::before, blockquote::after,
+q::before,
+q::after {
+  content: "";
+  content: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted #222;
+  cursor: help;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+th {
+  font-weight: bold;
+  vertical-align: bottom;
+}
+
+td {
+  font-weight: normal;
+  vertical-align: top;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+input[type=radio] {
+  vertical-align: text-bottom;
+}
+
+input[type=checkbox] {
+  vertical-align: bottom;
+}
+
+.ie7 input[type=checkbox] {
+  vertical-align: baseline;
+}
+
+.ie6 input {
+  vertical-align: text-bottom;
+}
+
+select,
+input,
+textarea {
+  font-size: 99%;
+}
+
+small {
+  font-size: 85%;
+}
+
+strong {
+  font-weight: bold;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+  cursor: pointer;
+}
+
+button,
+input[type=button] {
+  width: auto;
+  overflow: hidden;
+}
+
+.ie7 img {
+  -ms-interpolation-mode: bicubic;
+}
+
+.clearfix::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: floralwhite;
+  color: #bd7b00;
+  line-height: 1.5;
+  font-size: 0.875rem;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: 0.1rem;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  color: #f09c00;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 0.875rem;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  color: #6085a9;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: #f09c00;
+  transition: all 0.3s linear;
+}
+a:visited {
+  color: #f09c00;
+}
+a:hover {
+  color: #bd7b00;
+}
+
+ul {
+  list-style-type: none;
+}
+
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+
+  h1,
+h2,
+h3,
+h4 {
+    line-height: 1;
+  }
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: #fcfcfc;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("background.svg"), black;
+  width: 100vw;
+  min-height: 100vh;
+}
+main h1 {
+  margin: 1rem;
+  display: flex;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
+}
+main h1 .grow {
+  overflow: hidden;
+  max-width: 0;
+  display: inline-block;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  white-space: pre;
+  -webkit-animation: grow 1s ease-in 1 2s;
+          animation: grow 1s ease-in 1 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+@-webkit-keyframes grow {
+  from {
+    max-width: 0px;
+  }
+  to {
+    max-width: 50vw;
+  }
+}
+@keyframes grow {
+  from {
+    max-width: 0px;
+  }
+  to {
+    max-width: 50vw;
+  }
+}
+main .attribute {
+  align-self: flex-start;
+  justify-self: flex-end;
+  padding: 5px;
+}
+
+.email_input {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.email_input input[type=text] {
+  color: #787878;
+  outline: none;
+  font-size: 2rem;
+  padding-bottom: 0.33rem;
+  border-bottom: 3px solid #787878;
+  transition: all 0.3s linear;
+}
+.email_input input[type=text]:focus {
+  color: #f09c00;
+  border-bottom: 3px solid #f09c00;
+}
+.email_input input[type=submit] {
+  transition: transition;
+  background: #f09c00;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: white;
+}/*# sourceMappingURL=main.css.map */

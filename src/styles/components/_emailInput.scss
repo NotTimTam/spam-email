@@ -1,0 +1,36 @@
+@use '../themes/defaultTheme' as *;
+@use '../util' as *;
+
+.email_input {
+	display: flex;
+	align-items: center;
+
+	gap: 2rem;
+
+	input[type="text"] {
+		color: $secondary-4;
+
+		outline: none;
+
+		font-size: 2rem;
+
+		padding-bottom: 0.33rem;
+
+		border-bottom: 3px solid $secondary-4;
+
+		transition: $transition;
+
+		&:focus {
+			color: $primary-4;
+			border-bottom: 3px solid $primary-4;
+		}
+	}
+	input[type="submit"] {
+		transition: transition;
+
+		background: $primary-4;
+		padding: 1rem;
+		border-radius: $radius;
+		color: white;
+	}
+}

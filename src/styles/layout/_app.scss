@@ -1,0 +1,56 @@
+@use '../themes/defaultTheme' as *;
+@use '../util' as *;
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+
+	h1 {
+		margin: 1rem;
+
+		display: flex;
+
+		user-select: none;
+
+		cursor: default;
+
+		.grow {
+			overflow: hidden;
+			max-width: 0;
+
+			display: inline-block;
+
+			height: min-content;
+			white-space: pre;
+
+			animation: grow 1s ease-in 1 2s;
+			animation-fill-mode: forwards;
+
+			@keyframes grow {
+				from {
+					max-width: 0px;
+				}
+				to {
+					max-width: 50vw;
+				}
+			}
+		}
+	}
+
+	color: $white;
+
+	background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+		url("background.svg"), black;
+
+	width: 100vw;
+	min-height: 100vh;
+
+	.attribute {
+		align-self: flex-start;
+		justify-self: flex-end;
+
+		padding: 5px;
+	}
+}
