@@ -1,20 +1,45 @@
-import CheckedEmails from "./Components/CheckedEmails";
-import EmailInput from "./Components/EmailInput";
+import { Switch, Route } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+
+import EmailCheck from "./Pages/EmailCheck";
+import WebsiteCheck from "./Pages/WebsiteCheck";
+
+import { links } from "./util/consts";
+
+const filterList = ["Checked Emails"];
 
 function App() {
 	return (
 		<main>
-			<h1>
-				<span className="grow">Is this email address </span>spam?
-			</h1>
+			<Navbar />
 
-			<div className="content">
-				<EmailInput />
-				<CheckedEmails />
-			</div>
+			<Switch>
+				<Route exact path="/">
+					<EmailCheck />
+				</Route>
 
-			<div className="attribute">
+				<Route path="/websites">
+					<WebsiteCheck />
+				</Route>
+
+				{links
+					.filter((link) => !filterList.includes(link.text))
+					.map((link) => {
+						const { page, id, url } = link;
+						return (
+							<Route key={id} path={url}>
+								{page}
+							</Route>
+						);
+					})}
+			</Switch>
+
+			<div className="attribute-footer">
 				<a href="https://eva.pingutil.com/">EVA</a> Email Verification
+				API |{" "}
+				<a href="https://developers.google.com/safe-browsing">
+					Safe Browsing
+				</a>{" "}
 				API
 				<br />
 				Icon made by{" "}

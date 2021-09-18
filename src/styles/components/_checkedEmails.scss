@@ -1,3 +1,118 @@
 @use '../themes/defaultTheme' as *;
 @use '../util' as *;
 
+.checked-emails {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+
+	.noResults {
+		color: $red-light;
+		font-weight: bolder;
+	}
+
+	.search-bar {
+		width: 100%;
+		max-width: 24rem;
+		color: $secondary-4;
+		outline: none;
+
+		margin: 2rem 0rem 1rem 0rem;
+
+		padding: 0.5rem 0rem 0.5rem 0rem;
+		font-size: 1rem;
+
+		border-bottom: 0.25rem solid $secondary-4;
+
+		transition: $transition;
+
+		&:focus {
+			color: $primary-4;
+			border-bottom: 0.25rem solid $primary-4;
+		}
+	}
+
+	ul {
+		flex-grow: 2;
+		min-height: 50%;
+
+		width: 100%;
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		gap: 1rem;
+
+		li {
+			background: $white;
+			border-radius: $radius;
+
+			display: flex;
+			justify-content: space-between;
+
+			color: $black;
+
+			width: 98%;
+			padding: 1rem;
+
+			max-width: 90vw;
+
+			@include tablet {
+				max-width: 50vw;
+			}
+
+			.address {
+				font-weight: bolder;
+
+				overflow: hidden;
+			}
+
+			.sections {
+				display: flex;
+				width: max-content;
+				align-items: center;
+				justify-content: space-evenly;
+
+				gap: 0.5rem;
+
+				.section {
+					display: flex;
+					text-transform: uppercase;
+					color: $grey-4;
+
+					align-items: center;
+					justify-content: flex-start;
+
+					gap: 0.25rem;
+
+					.icon {
+						border-radius: 50%;
+
+						width: 1.25rem;
+						height: 1.25rem;
+
+						color: white;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						&.yes {
+							background-color: #77dd77;
+
+							padding-right: 1px;
+							padding-top: 3px;
+						}
+
+						&.no {
+							background-color: tomato;
+						}
+					}
+				}
+			}
+		}
+	}
+}

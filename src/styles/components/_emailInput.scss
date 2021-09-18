@@ -2,35 +2,60 @@
 @use '../util' as *;
 
 .email_input {
-	display: flex;
-	align-items: center;
+	width: 100vw;
 
-	gap: 2rem;
+	form {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-	input[type="text"] {
-		color: $secondary-4;
+		max-width: 80%;
+		margin: 0 auto;
 
-		outline: none;
+		gap: 2rem;
 
-		font-size: 2rem;
+		input[type="text"] {
+			color: $secondary-4;
 
-		padding-bottom: 0.33rem;
+			outline: none;
 
-		border-bottom: 3px solid $secondary-4;
+			font-size: 1.5rem;
 
-		transition: $transition;
+			flex-grow: 2;
 
-		&:focus {
-			color: $primary-4;
-			border-bottom: 3px solid $primary-4;
+			padding-bottom: 0.33rem;
+
+			border-bottom: 3px solid $secondary-4;
+
+			transition: $transition;
+
+			max-width: 24rem;
+
+			&:focus {
+				color: $primary-4;
+				border-bottom: 3px solid $primary-4;
+			}
 		}
-	}
-	input[type="submit"] {
-		transition: transition;
+		input[type="submit"] {
+			transition: $transition;
 
-		background: $primary-4;
-		padding: 1rem;
-		border-radius: $radius;
-		color: white;
+			background: $primary-4;
+			padding: 0.8rem;
+			border-radius: $radius;
+			color: white;
+
+			&:hover {
+				transform: translateX(-3px) translateY(-3px);
+				box-shadow: 3px 3px 0px $primary-3;
+			}
+
+			&:active {
+				background: $primary-3;
+				color: $white;
+
+				transform: translateX(0px) translateY(0px);
+				box-shadow: none;
+			}
+		}
 	}
 }
