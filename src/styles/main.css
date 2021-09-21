@@ -270,7 +270,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("background.svg"), black;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("background.svg"), black;
 }
 main .attribute-footer {
   align-self: flex-start;
@@ -341,13 +341,14 @@ main .attribute-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   color: #fcfcfc;
   width: 100%;
   flex-grow: 2;
 }
 .website-check h1 {
-  margin-top: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -398,19 +399,19 @@ main .attribute-footer {
   font-weight: bolder;
 }
 .checked-emails .search-bar {
-  width: 100%;
-  max-width: 24rem;
+  width: 90vw;
+  max-width: 25rem;
   color: #787878;
   outline: none;
   margin: 2rem 0rem 1rem 0rem;
   padding: 0.5rem 0rem 0.5rem 0rem;
   font-size: 1rem;
-  border-bottom: 0.25rem solid #787878;
+  border-bottom: 0.15rem solid #787878;
   transition: all 0.3s linear;
 }
 .checked-emails .search-bar:focus {
   color: #f09c00;
-  border-bottom: 0.25rem solid #f09c00;
+  border-bottom: 0.15rem solid #f09c00;
 }
 .checked-emails ul {
   flex-grow: 2;
@@ -428,6 +429,7 @@ main .attribute-footer {
   border-radius: 0.5rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: #222;
   width: 98%;
   padding: 1rem;
@@ -440,15 +442,20 @@ main .attribute-footer {
 }
 .checked-emails ul li .address {
   font-weight: bolder;
+  vertical-align: center;
   overflow: hidden;
+  width: 12rem;
+  cursor: default;
 }
 .checked-emails ul li .sections {
   display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
   align-items: center;
   justify-content: space-evenly;
+  cursor: default;
+  flex-grow: 2;
   gap: 0.5rem;
 }
 .checked-emails ul li .sections .section {
@@ -476,11 +483,39 @@ main .attribute-footer {
 .checked-emails ul li .sections .section .icon.no {
   background-color: tomato;
 }
+.checked-emails ul li .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 15%;
+  max-width: 3rem;
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
+}
+.checked-emails ul li .buttons a:visited {
+  color: #f09c00;
+}
+.checked-emails ul li .buttons .btn {
+  color: #f09c00;
+  cursor: pointer;
+  margin: 0;
+  padding: 0.25rem;
+  font-weight: 300;
+  font-size: 1rem;
+  transition: all 0.3s linear;
+}
+.checked-emails ul li .buttons .btn:hover {
+  color: #787878;
+}
+.checked-emails ul li .buttons .delete-btn:hover {
+  color: #ce3b3b;
+}
 
-.email_input {
+.email-input {
   width: 100vw;
 }
-.email_input form {
+.email-input form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -488,7 +523,7 @@ main .attribute-footer {
   margin: 0 auto;
   gap: 2rem;
 }
-.email_input form input[type=text] {
+.email-input form input[type=text] {
   color: #787878;
   outline: none;
   font-size: 1.5rem;
@@ -498,22 +533,187 @@ main .attribute-footer {
   transition: all 0.3s linear;
   max-width: 24rem;
 }
-.email_input form input[type=text]:focus {
+.email-input form input[type=text]:focus {
   color: #f09c00;
   border-bottom: 3px solid #f09c00;
 }
-.email_input form input[type=submit] {
+.email-input form input[type=submit] {
   transition: all 0.3s linear;
   background: #f09c00;
   padding: 0.8rem;
   border-radius: 0.5rem;
   color: white;
 }
-.email_input form input[type=submit]:hover {
+.email-input form input[type=submit]:hover {
   transform: translateX(-3px) translateY(-3px);
   box-shadow: 3px 3px 0px #bd7b00;
 }
-.email_input form input[type=submit]:active {
+.email-input form input[type=submit]:active {
+  background: #bd7b00;
+  color: #fcfcfc;
+  transform: translateX(0px) translateY(0px);
+  box-shadow: none;
+}
+
+.checked-websites {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.checked-websites .noResults {
+  color: #ce3b3b;
+  font-weight: bolder;
+}
+.checked-websites .search-bar {
+  width: 90vw;
+  max-width: 25rem;
+  color: #787878;
+  outline: none;
+  margin: 2rem 0rem 1rem 0rem;
+  padding: 0.5rem 0rem 0.5rem 0rem;
+  font-size: 1rem;
+  border-bottom: 0.15rem solid #787878;
+  transition: all 0.3s linear;
+}
+.checked-websites .search-bar:focus {
+  color: #f09c00;
+  border-bottom: 0.15rem solid #f09c00;
+}
+.checked-websites ul {
+  flex-grow: 2;
+  min-height: 50%;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.checked-websites ul li {
+  background: #fcfcfc;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #222;
+  width: 98%;
+  padding: 1rem;
+  max-width: 90vw;
+}
+@media only screen and (min-width: 768px) {
+  .checked-websites ul li {
+    max-width: 50vw;
+  }
+}
+.checked-websites ul li .address {
+  font-weight: bolder;
+  vertical-align: center;
+  overflow: hidden;
+  width: 12rem;
+  cursor: default;
+}
+.checked-websites ul li .sections {
+  display: flex;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: default;
+  flex-grow: 2;
+  gap: 0.5rem;
+}
+.checked-websites ul li .sections .section {
+  display: flex;
+  text-transform: uppercase;
+  color: #6085a9;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.25rem;
+}
+.checked-websites ul li .sections .section .icon {
+  border-radius: 50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checked-websites ul li .sections .section .icon.yes {
+  background-color: #77dd77;
+  padding-right: 1px;
+  padding-top: 3px;
+}
+.checked-websites ul li .sections .section .icon.no {
+  background-color: tomato;
+}
+.checked-websites ul li .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 15%;
+  max-width: 3rem;
+  min-width: 2.5rem;
+}
+.checked-websites ul li .buttons a:visited {
+  color: #f09c00;
+}
+.checked-websites ul li .buttons .btn {
+  color: #f09c00;
+  cursor: pointer;
+  margin: 0;
+  padding: 0.25rem;
+  font-weight: 300;
+  font-size: 1rem;
+  transition: all 0.3s linear;
+}
+.checked-websites ul li .buttons .btn:hover {
+  color: #787878;
+}
+.checked-websites ul li .buttons .delete-btn:hover {
+  color: #ce3b3b;
+}
+
+.website-input {
+  width: 100vw;
+}
+.website-input form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+  margin: 0 auto;
+  gap: 2rem;
+}
+.website-input form input[type=text] {
+  color: #787878;
+  outline: none;
+  font-size: 1.5rem;
+  flex-grow: 2;
+  padding-bottom: 0.33rem;
+  border-bottom: 3px solid #787878;
+  transition: all 0.3s linear;
+  max-width: 24rem;
+}
+.website-input form input[type=text]:focus {
+  color: #f09c00;
+  border-bottom: 3px solid #f09c00;
+}
+.website-input form input[type=submit] {
+  transition: all 0.3s linear;
+  background: #f09c00;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  color: white;
+}
+.website-input form input[type=submit]:hover {
+  transform: translateX(-3px) translateY(-3px);
+  box-shadow: 3px 3px 0px #bd7b00;
+}
+.website-input form input[type=submit]:active {
   background: #bd7b00;
   color: #fcfcfc;
   transform: translateX(0px) translateY(0px);

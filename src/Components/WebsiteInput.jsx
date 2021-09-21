@@ -1,31 +1,31 @@
 import { React, useState } from "react";
 import { useAppContext } from "../util/context";
 
-const EmailInput = () => {
+const WebsiteInput = () => {
 	const { setQuery } = useAppContext();
-	const [emailInput, setEmailInput] = useState("");
+	const [websiteInput, setWebsiteInput] = useState("");
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		setQuery(emailInput);
+		setQuery(websiteInput);
 
-		setEmailInput("");
+		setWebsiteInput("");
 	};
 
 	return (
-		<div className="email-input">
+		<div className="website-input">
 			<form onSubmit={handleSubmit}>
 				<input
 					type="text"
 					name=""
-					id="email"
-					placeholder="email@email.com"
+					id="website"
+					placeholder="https://www.website.com"
 					autoComplete="off"
 					autoCapitalize="off"
 					spellCheck="off"
-					value={emailInput}
-					onChange={(e) => setEmailInput(e.target.value)}
+					value={websiteInput}
+					onChange={(e) => setWebsiteInput(e.target.value)}
 				/>
 				<input type="submit" value="Check Address" />
 			</form>
@@ -33,4 +33,4 @@ const EmailInput = () => {
 	);
 };
 
-export default EmailInput;
+export default WebsiteInput;

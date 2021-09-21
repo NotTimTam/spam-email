@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAppContext } from "../util/context";
-import { BsX, BsCheck } from "react-icons/bs";
+import { BsX, BsCheck, BsTrash, BsEnvelope } from "react-icons/bs";
 
 const CheckedEmails = () => {
-	const { emails } = useAppContext();
+	const { emails, setEmails, setApi } = useAppContext();
 	const [searchQuery, setSearchQuery] = useState("");
 
-	const handleSubmit = (e) => {
-		setSearchQuery("");
+	useEffect(() => {
+		setApi("https://api.eva.pingutil.com/email?email=");
+	}, [setApi]);
+
+	const deletePastEmail = (id) => {
+		setEmails(emails.filter((email) => email.id !== id));
 	};
 
 	return (
@@ -16,7 +20,6 @@ const CheckedEmails = () => {
 				<input
 					type="text"
 					value={searchQuery}
-					placeholder="email@email.com"
 					autoComplete="off"
 					autoCapitalize="off"
 					spellCheck="off"
@@ -27,27 +30,22 @@ const CheckedEmails = () => {
 			)}
 
 			<ul>
-				{emails.filter((email) => {
-					if (email && email.email_address.includes(searchQuery)) {
-						return email;
-					}
-				}).length === 0 && emails.length > 0 ? (
+				{emails.filter(
+					(email) =>
+						email && email.email_address.includes(searchQuery)
+				).length === 0 && emails.length > 0 ? (
 					<p className="noResults">No search results...</p>
 				) : (
 					emails
-						.filter((email) => {
-							if (
+						.filter(
+							(email) =>
 								email &&
 								email.email_address.includes(searchQuery)
-							) {
-								return email;
-							}
-						})
+						)
 						.map((email) => {
 							if (email) {
 								const {
 									email_address: address,
-									webmail,
 									deliverable: real,
 									spam,
 									gibberish,
@@ -56,9 +54,13 @@ const CheckedEmails = () => {
 
 								return (
 									<li key={id}>
-										<span className="address">
+										<span
+											className="address"
+											title={address}
+										>
 											{address}
 										</span>
+
 										<div className="sections">
 											<span className="section">
 												<div
@@ -103,8 +105,43 @@ const CheckedEmails = () => {
 												gibberish
 											</span>
 										</div>
+
+										<div className="buttons">
+											<a
+												href={`${
+													!spam
+														? real
+															? `mailto:${address}`
+															: "https://support.google.com/mail/answer/8253?hl=en"
+														: "https://support.google.com/mail/answer/8253?hl=en"
+												}`}
+											>
+												<button
+													className="btn"
+													title={`${
+														spam
+															? "You shouldn't contact spam addresses."
+															: "Send an email to this address."
+													}`}
+												>
+													<BsEnvelope />
+												</button>
+											</a>
+
+											<button
+												onClick={() =>
+													deletePastEmail(id)
+												}
+												className="btn delete-btn"
+												title="Remove from search history."
+											>
+												<BsTrash />
+											</button>
+										</div>
 									</li>
 								);
+							} else {
+								return null;
 							}
 						})
 				)}

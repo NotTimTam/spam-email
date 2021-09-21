@@ -1,7 +1,7 @@
 @use '../themes/defaultTheme' as *;
 @use '../util' as *;
 
-.checked-emails {
+.checked-websites {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -132,7 +132,7 @@
 
 				width: 15%;
 				max-width: 3rem;
-				min-width: min-content;
+				min-width: 2.5rem;
 
 				a {
 					&:visited {
@@ -162,6 +162,7 @@
 					&:hover {
 						color: $red-light;
 					}
+
 				}
 			}
 		}
