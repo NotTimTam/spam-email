@@ -5,12 +5,23 @@ import EmailCheck from "./Pages/EmailCheck";
 import WebsiteCheck from "./Pages/WebsiteCheck";
 
 import { links } from "./util/consts";
+import { render, setup } from "./util/canvas";
+
+import { useRef, useEffect } from "react";
 
 const filterList = ["Checked Emails"];
 
 function App() {
+	const canvas = useRef(null);
+	useEffect(() => {
+		setup(canvas.current);
+		render();
+	}, []);
+
 	return (
 		<main>
+			<canvas ref={canvas} className="background" id="canvas"></canvas>
+
 			<Navbar />
 
 			<Switch>

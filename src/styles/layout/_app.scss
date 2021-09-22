@@ -1,5 +1,5 @@
-@use '../themes/defaultTheme' as *;
-@use '../util' as *;
+@use "../themes/defaultTheme" as *;
+@use "../util" as *;
 
 main {
 	width: 100%;
@@ -11,8 +11,21 @@ main {
 	align-items: center;
 	justify-content: flex-start;
 
-	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-		url("background.svg"), black;
+	// background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+	// 	url("background.svg"), black;
+
+	.background {
+		width: 100vw;
+		height: 100vh;
+
+		position: fixed;
+		top: 0;
+		left: 0;
+
+		z-index: -999;
+
+		background-color: black;
+	}
 
 	.attribute-footer {
 		align-self: flex-start;

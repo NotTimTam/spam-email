@@ -22,6 +22,10 @@
 -   Finished all components.
 -   Fixed styling and responsive design.
 
+#### 9/21
+
+- Added fancy background.
+
 ## To-do List
 
 -   [x] Main SASS and React // Completed 9/20
